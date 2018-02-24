@@ -1,0 +1,13 @@
+language: java
+java:
+  - openjdk7
+  - openjdk8
+  - oraclejdk8
+
+runtime:
+  nodePool: testARM
+
+build:
+  ci:
+    - echo "hello world"
+    - java -version
