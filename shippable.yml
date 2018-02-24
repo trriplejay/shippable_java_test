@@ -1,9 +1,8 @@
 language: java
-
-env:
-  - VERSION=java-8-openjdk-arm64
-  - VERSION=java-7-openjdk-arm64
-  - VERSION=java-8-oracle-arm64
+java:
+  - openjdk7
+  - openjdk8
+  - oraclejdk8
 
 runtime:
   nodePool: testARM
@@ -13,7 +12,4 @@ build:
     image_name: drydockaarch64/u16javall
     image_tag: master
   ci:
-    - 'echo "setting java version to: $VERSION"'
-    - update-alternatives --set java /usr/lib/jvm/$VERSION/jre/bin/java
-    - java -version
-    - echo "hello world"
+    - java -verison
