@@ -18,6 +18,8 @@ build:
 jobs:
   - name: java_test
     type: runSh
+    runtime:
+      - nodePool: testARM
     steps:
       - TASK:
           name: java1
