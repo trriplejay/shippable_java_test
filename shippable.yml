@@ -1,18 +1,14 @@
 language: java
 jdk:
-  - openjdk7
-  - openjdk8
   - oraclejdk8
 
-runtime:
-  nodePool: testARM
-
 build:
-  pre_ci_boot:
-    image_name: drydockaarch64/u16javall
-    image_tag: master
   ci:
     - java -version
+    - mvn --version
+    - shipctl jdk set oraclejdk10
+    - java -version
+    - mvn --version
 
 
 jobs:
