@@ -7,10 +7,10 @@ build:
     #- export JAVA_HOME=""
     - java -version
     - mvn --version
-    - shipctl jdk set oraclejdk10
+    - source shipctl jdk set oraclejdk10
     - java -version
     - mvn --version
-    - shipctl jdk set oraclejdk8
+    - source shipctl jdk set oraclejdk8
     - java -version
     - mvn --version
     - which shipctl
