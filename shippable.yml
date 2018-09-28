@@ -17,45 +17,61 @@ build:
 
 
 jobs:
-  - name: java_test
+  - name: java_shipctl_jdk
     type: runSh
-    runtime:
-      nodePool: testARM
     steps:
       - TASK:
-          name: java1
-          runtime:
-            options:
-              imageName: drydockaarch64/u16javall
-              imageTag: master
+          name: switcher
           script:
-            - echo "update-alternatives --set java /usr/lib/jvm/java-7-openjdk-arm64/jre/bin/java"
-            - update-alternatives --set java /usr/lib/jvm/java-7-openjdk-arm64/jre/bin/java
-            - printf "\n===================================="
             - java -version
-            - printf "\n===================================="
-      - TASK:
-          name: java2
-          runtime:
-            options:
-              imageName: drydockaarch64/u16javall
-              imageTag: master
-          script:
-            - echo "update-alternatives --set java /usr/lib/jvm/java-8-openjdk-arm64/jre/bin/java"
-            - update-alternatives --set java /usr/lib/jvm/java-8-openjdk-arm64/jre/bin/java
-            - printf "\n===================================="
+            - mvn --version
+            - shipctl jdk set oraclejdk10
             - java -version
-            - printf "\n===================================="
+            - mvn --version
+            - shipctl jdk set oraclejdk8
+            - java -version
+            - mvn --version
+            - cat $(which shipctl)
+            
+#   - name: java_test
+#     type: runSh
+#     runtime:
+#       nodePool: testARM
+#     steps:
+#       - TASK:
+#           name: java1
+#           runtime:
+#             options:
+#               imageName: drydockaarch64/u16javall
+#               imageTag: master
+#           script:
+#             - echo "update-alternatives --set java /usr/lib/jvm/java-7-openjdk-arm64/jre/bin/java"
+#             - update-alternatives --set java /usr/lib/jvm/java-7-openjdk-arm64/jre/bin/java
+#             - printf "\n===================================="
+#             - java -version
+#             - printf "\n===================================="
+#       - TASK:
+#           name: java2
+#           runtime:
+#             options:
+#               imageName: drydockaarch64/u16javall
+#               imageTag: master
+#           script:
+#             - echo "update-alternatives --set java /usr/lib/jvm/java-8-openjdk-arm64/jre/bin/java"
+#             - update-alternatives --set java /usr/lib/jvm/java-8-openjdk-arm64/jre/bin/java
+#             - printf "\n===================================="
+#             - java -version
+#             - printf "\n===================================="
 
-      - TASK:
-          name: java3
-          runtime:
-            options:
-              imageName: drydockaarch64/u16javall
-              imageTag: master
-          script:
-            - echo "update-alternatives --set java /usr/lib/jvm/java-8-oracle/jre/bin/java"
-            - update-alternatives --set java /usr/lib/jvm/java-8-oracle/jre/bin/java
-            - printf "\n===================================="
-            - java -version
-            - printf "\n===================================="
+#       - TASK:
+#           name: java3
+#           runtime:
+#             options:
+#               imageName: drydockaarch64/u16javall
+#               imageTag: master
+#           script:
+#             - echo "update-alternatives --set java /usr/lib/jvm/java-8-oracle/jre/bin/java"
+#             - update-alternatives --set java /usr/lib/jvm/java-8-oracle/jre/bin/java
+#             - printf "\n===================================="
+#             - java -version
+#             - printf "\n===================================="
