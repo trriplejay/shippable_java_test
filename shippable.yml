@@ -13,6 +13,7 @@ build:
     - shipctl jdk set oraclejdk8
     - java -version
     - mvn --version
+    - which shipctl
     - cat $(which shipctl)
 
 
