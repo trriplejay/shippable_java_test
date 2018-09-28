@@ -10,6 +10,9 @@ build:
     - shipctl jdk set oraclejdk10
     - java -version
     - mvn --version
+    - shipctl jdk set oraclejdk8
+    - java -version
+    - mvn --version
 
 
 jobs:
