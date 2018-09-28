@@ -4,7 +4,7 @@ jdk:
 
 build:
   ci:
-    - export JAVA_HOME=""
+    #- export JAVA_HOME=""
     - java -version
     - mvn --version
     - shipctl jdk set oraclejdk10
