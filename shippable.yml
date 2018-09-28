@@ -22,6 +22,10 @@ jobs:
     steps:
       - TASK:
           name: switcher
+          runtime:
+            options:
+              imageName: drydock/u16javall
+              imageTag: v6.9.4
           script:
             - java -version
             - mvn --version
